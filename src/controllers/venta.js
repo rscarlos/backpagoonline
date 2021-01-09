@@ -17,9 +17,9 @@ let preferencia = {
         ]
     },
     back_urls:{
-        success: 'https://tiendavirtualbackflask-mlcryyz2x.vercel.app/confirmation',
-        failure: 'https://tiendavirtualbackflask-mlcryyz2x.vercel.app/failure',
-        pending: 'https://tiendavirtualbackflask-mlcryyz2x.vercel.app/pending'
+        success: 'https://tiendavirtualbackflask.vercel.app/confirmation',
+        failure: 'https://tiendavirtualbackflask.vercel.app/failure',
+        pending: 'https://tiendavirtualbackflask.vercel.app/pending'
     }, 
     notification_url: "https://backpagoonline.herokuapp.com/notificaciones",
     external_reference: "riossuarezcarlos@gmail.com",
