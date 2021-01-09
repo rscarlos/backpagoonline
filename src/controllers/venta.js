@@ -17,11 +17,11 @@ let preferencia = {
         ]
     },
     back_urls:{
-        success: 'http://ederivero-mp-ecommerce-nodejs.herokuapp.com/success',
-        failure: 'http://ederivero-mp-ecommerce-nodejs.herokuapp.com/failure',
-        pending: 'http://ederivero-mp-ecommerce-nodejs.herokuapp.com/pending'
-    },
-    notification_url: "https://pagos-mongoose-carlos.herokuapp.com/notificaciones",
+        success: 'https://tiendavirtualbackflask-mlcryyz2x.vercel.app/confirmation',
+        failure: 'https://tiendavirtualbackflask-mlcryyz2x.vercel.app/failure',
+        pending: 'https://tiendavirtualbackflask-mlcryyz2x.vercel.app/pending'
+    }, 
+    notification_url: "https://backpagoonline.herokuapp.com/notificaciones",
     external_reference: "riossuarezcarlos@gmail.com",
     // Si lo declaramos , al realizar la compra nos redireccionara al endpoint succes
     auto_return: "approved"
@@ -32,7 +32,7 @@ let preferencia = {
 const preferenciaMercadoPago = async(req, res)=>{
 
     // tengo que ver los productos id's y buscarlos en la colecion de producto
-    let {productos, cliente} = req.body;
+    let {productos, cliente, orderId} = req.body;
     let items= []; 
     try {
         var payer = {
@@ -40,7 +40,7 @@ const preferenciaMercadoPago = async(req, res)=>{
             surname: cliente.cliApe,
             email: cliente.cliEmail,
             phone:{
-                number: + cliente.cliFonoNumero,
+                number: +cliente.cliFonoNumero,
                 area_code:  cliente.cliFonoArea
             },
             identification: {
@@ -86,7 +86,8 @@ const preferenciaMercadoPago = async(req, res)=>{
     await Pasarela.create({
         idPago: idPago,
         idCollector: idCollector,
-        clienteId: cliente.clienteId
+        clienteId: cliente.clienteId,
+        orderId: orderId
     })
  
     return res.json({

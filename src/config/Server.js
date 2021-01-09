@@ -15,7 +15,7 @@ class Server {
     habilitarCORS(){
         this.app.use((req, res, next)=>{
             res.header('Access-Control-Allow-Origin','*');
-            res.header('Access-Control-Allow-Headers','Authorization, Content-Type');
+            res.header('Access-Control-Allow-Headers', 'Authorization, Content-Type, Access-Content-Type, Accept')
             res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
             next();
         });
